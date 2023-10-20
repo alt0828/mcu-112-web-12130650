@@ -12,11 +12,16 @@ div.container{
 input[type="checkbox"]{
     width: 25px;
     height: 25px;
-
 }
+
 .form{
     border: solid 1px #ddd;
 }
+
+.form form{
+background-color: white;
+}
+
 .form input{
 border: none;
 }
@@ -24,13 +29,18 @@ border: none;
 .main{
 border:solid 1px #ddd;
 border-bottom: none;
-
 }
+
 .main>ul>li{
     border-bottom: solid 1px #ededed;
+    color: #777;
 }
+
 footer{
 border:solid 1px #ddd;
+}
+.count,button{
+    color: #777;
 }
 button{
     border: none;
