@@ -1,12 +1,9 @@
-let todold: number;
-todold = 1;
-console.log("Todo ID", todold);
+const todo = {
+    id:1,
+    content:"期中考作業",
+    hasFinished;false,
+    finishDate:undefined,
+};
+console.log("To Do:",todo);
+console.table(todo);
 
-const todo = "期中考作業";
-console.log("Todo Name", todo);
-
-const hasFinished = false;
-console.log("HasFinished", hasFinished);
-
-let finishDate: Date | undefined;
-console.log("Finish Date", finishDate);
