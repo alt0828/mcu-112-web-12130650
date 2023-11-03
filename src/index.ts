@@ -1,5 +1,6 @@
-let todoB = "TodoB";
-console.log(todoB);
+let todold: number;
+todold = "1";
+Cconsole.log("Todo ID", todold);
 
-const todoC = "TodoC";
-console.log(todoC);
+const todo = "期中考作業";
+console.log("Todo Name", todo);
