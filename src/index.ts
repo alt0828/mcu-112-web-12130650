@@ -8,5 +8,6 @@ console.log("Todo Name", todo);
 const hasFinished = false;
 console.log("HasFinished", hasFinished);
 
-let finishDate = null;
+let finishDate :new Date();
 console.log("Finish Date", finishDate);
+
