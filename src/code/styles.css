@@ -74,6 +74,9 @@ footer {
 button {
   color: #777;
 }
+span > button {
+  margin-right: 5px;
+}
 span.completed {
   text-decoration: line-through;
 }
@@ -83,4 +86,6 @@ button {
   background: none;
   border: none;
   cursor: pointer;
+  font-size: 25px;
+  color: #cc9a9a;
 }
