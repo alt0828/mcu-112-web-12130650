@@ -8,4 +8,7 @@ import { TodoComponent } from './todo/todo.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {}
+export class AppComponent {
+  content = '待辦事項 A';
+  hasFinished = false;
+}
