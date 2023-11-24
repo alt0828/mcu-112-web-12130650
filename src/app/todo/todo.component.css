@@ -15,7 +15,7 @@ span.completed {
   text-decoration: line-through;
 }
 span.finish-date {
-  font-style: 16px;
+  font-size: 14px;
   margin-left: 10px;
 }
 button.delete {
