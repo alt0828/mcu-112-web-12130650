@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+
 import { Todo } from '../model/todo';
 
 @Injectable({
@@ -13,5 +14,11 @@ export class TaskService {
         : Math.max(...this.tasks.map((task) => task.id)) + 1;
     const task = new Todo(id, content);
     this.tasks.push(task);
+  }
+
+  updateState(id: number, hasFinished: boolean): void {
+    const index = this.tasks.findIndex((task) => task.id === id);
+    this.tasks[index].hasFinished = hasFinished;
+    this.tasks[index].finishDate = hasFinished ? new Date() : undefined;
   }
 }

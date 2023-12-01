@@ -15,5 +15,5 @@ export class TodoListComponent {
   @Input()
   tasks?: Todo[];
 
-  @Output() stateChange = new EventEmitter<{ index: number; state: boolean }>();
+  @Output() stateChange = new EventEmitter<{ id: number; state: boolean }>();
 }
