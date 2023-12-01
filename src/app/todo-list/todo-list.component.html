@@ -1,4 +1,4 @@
-<div *ngIf="tasks.length > 0"></div>
+<div *ngIf="tasks && tasks.length > 0; else dataEmpty"></div>
 
 <app-todo
   *ngFor="let task of tasks; let index = index"
@@ -6,4 +6,6 @@
   (stateChange)="stateChange.emit({ index: index, state: $event })"
 >
 </app-todo>
-<div *ngIf="tasks.length === 0" class="empty">沒有待辦事項</div>
+<ng-template #dataEmpty>
+  <div class="empty">沒有待辦事項</div>
+</ng-template>

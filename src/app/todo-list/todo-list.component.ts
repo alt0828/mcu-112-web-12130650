@@ -13,7 +13,7 @@ import { TodoComponent } from '../todo/todo.component';
 })
 export class TodoListComponent {
   @Input()
-  tasks!: Todo[];
+  tasks?: Todo[];
 
   @Output() stateChange = new EventEmitter<{ index: number; state: boolean }>();
 }
