@@ -22,6 +22,9 @@ export class TodoComponent {
   task!: Todo;
 
   @Output()
+  remove = new EventEmitter<boolean>();
+
+  @Output()
   readonly stateChange = new EventEmitter<boolean>();
 
   @HostBinding('class')

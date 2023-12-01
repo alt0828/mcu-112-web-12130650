@@ -17,5 +17,5 @@
     >{{ task.id }}.{{ task.content }}</span
   >
   <span class="finish-date">{{ task.finishDate | date : "yyyy/MM/dd" }}</span>
-  <button class="delete">X</button>
+  <button class="delete" type="button" (click)="remove.emit()">X</button>
 </span>

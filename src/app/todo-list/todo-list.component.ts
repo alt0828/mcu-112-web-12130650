@@ -14,6 +14,6 @@ import { TodoComponent } from '../todo/todo.component';
 export class TodoListComponent {
   @Input()
   tasks?: Todo[];
-
+  @Output() remove = new EventEmitter<number>();
   @Output() stateChange = new EventEmitter<{ id: number; state: boolean }>();
 }
