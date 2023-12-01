@@ -1,9 +1,9 @@
-import { HeaderComponent } from './header/header.component';
-import { Component } from '@angular/core';
-import { TodoComponent } from './todo/todo.component';
-import { FooterComponent } from './footer/footer.component';
-import { Todo } from './model/todo';
 import { JsonPipe } from '@angular/common';
+import { Component } from '@angular/core';
+
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
+import { Todo } from './model/todo';
 import { TodoListComponent } from './todo-list/todo-list.component';
 
 @Component({
@@ -23,5 +23,11 @@ export class AppComponent {
       this.tasks[task.index].finishDate = undefined;
       this.tasks[task.index].hasFinished = false;
     }
+  }
+  onSet(): void {
+    this.tasks = [new Todo(1, '待辦事項 A'), new Todo(2, '待辦事項 B')];
+  }
+  onClear(): void {
+    this.tasks = [];
   }
 }
