@@ -13,9 +13,10 @@
   >
     已完成
   </button>
-  <span [class.completed]="task.hasFinished"
-    >{{ task.id }}.{{ task.content }}</span
-  >
+  <span [class.completed]="task.hasFinished">
+    {{ task.id }}.{{ task.content }}
+    <button type="button" (click)="view.emit()">明細</button>
+  </span>
   <span class="finish-date">{{ task.finishDate | date : "yyyy/MM/dd" }}</span>
   <button class="delete" type="button" (click)="remove.emit()">X</button>
 </span>
