@@ -23,4 +23,3 @@ export class TodoListComponent {
   @Output()
   stateChange = new EventEmitter<{ id: number; state: boolean }>();
 }
-s;
