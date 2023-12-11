@@ -6,12 +6,18 @@ import { Todo } from '../model/todo';
   providedIn: 'root',
 })
 export class TaskService {
-  tasks: Todo[] = [];
+  private tasks: Todo[] = [];
+
+  getAll(): Todo[] {
+    return this.tasks;
+  }
+
   add(content: string): void {
     const id =
       this.tasks.length === 0
         ? 1
         : Math.max(...this.tasks.map((task) => task.id)) + 1;
+    1;
     const task = new Todo(id, content);
     this.tasks.push(task);
   }

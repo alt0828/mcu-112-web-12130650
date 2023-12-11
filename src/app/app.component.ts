@@ -1,11 +1,11 @@
 import { JsonPipe } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { Todo } from './model/todo';
-import { TodoListComponent } from './todo-list/todo-list.component';
 import { TaskService } from './services/task.service';
+import { TodoListComponent } from './todo-list/todo-list.component';
 
 @Component({
   selector: 'app-root',
@@ -14,10 +14,14 @@ import { TaskService } from './services/task.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   taskService = inject(TaskService);
 
-  tasks = [new Todo(1, '待辦事項 A'), new Todo(2, '待辦事項 B')];
+  tasks: Todo[] = [];
+
+  ngOnInit(): void {
+    this.task = this.taskService.getAll();
+  }
 
   onAdd(): void {
     this.taskService.add('待辦事項 C');
