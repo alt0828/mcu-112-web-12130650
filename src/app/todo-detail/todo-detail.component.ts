@@ -3,14 +3,12 @@ import {
   Input,
   inject,
   numberAttribute,
-  OnInit,
   HostBinding,
   OnChanges,
-  SimpleChanges,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { TaskRemoteService } from '../services/task-remote.service';
 import { Todo } from '../model/todo';
-import { TaskService } from '../services/task.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-todo-detail',
@@ -25,12 +23,12 @@ export class TodoDetailComponent implements OnChanges {
 
   task?: Todo;
 
-  private readonly taskService = inject(TaskService);
+  private readonly taskService = inject(TaskRemoteService);
 
   @HostBinding('class')
   class = 'todo-detail';
 
   ngOnChanges(): void {
-    this.task = this.taskService.getById(this.id);
+    this.taskService.getById(this.id).subscribe((task) => (this.task = task));
   }
 }
