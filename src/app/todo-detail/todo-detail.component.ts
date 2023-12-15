@@ -7,7 +7,7 @@ import {
   OnChanges,
 } from '@angular/core';
 import { Observable } from 'rxjs';
-import { TaskRemoteService } from '../services/task-remote.service';
+import { TaskService } from '../services/task.service';
 import { Todo } from '../model/todo';
 import { AsyncPipe, NgIf } from '@angular/common';
 @Component({
@@ -23,7 +23,7 @@ export class TodoDetailComponent implements OnChanges {
 
   task$!: Observable<Todo | undefined>;
 
-  private readonly taskService = inject(TaskRemoteService);
+  private readonly taskService = inject(TaskService);
 
   @HostBinding('class')
   class = 'todo-detail';
