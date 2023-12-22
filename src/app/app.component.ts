@@ -48,8 +48,8 @@ export class AppComponent implements OnInit {
     );
   }
 
-  onAdd(): void {
-    this.taskService.add('待辦事項 C').subscribe(() => this.refresh$.next());
+  onSave(task: Todo): void {
+    this.taskService.add(task).subscribe(() => this.refresh$.next());
   }
   onRemove(id: number): void {
     this.taskService.remove(id).subscribe(() => this.refresh$.next());
