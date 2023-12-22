@@ -8,7 +8,7 @@ import { TaskService } from './services/task.service';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoDetailComponent } from './todo-detail/todo-detail.component';
 import { Observable, Subject, startWith, switchMap } from 'rxjs';
-
+import { TodoSearchComponent } from './todo-search/todo-search.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -19,6 +19,7 @@ import { Observable, Subject, startWith, switchMap } from 'rxjs';
     TodoListComponent,
     FooterComponent,
     TodoDetailComponent,
+    TodoSearchComponent,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
