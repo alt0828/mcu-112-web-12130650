@@ -6,6 +6,7 @@ div.container {
   border: solid 1px #ddd;
   border-bottom: none;
 }
+.todo-form,
 .todo-detail {
   margin-top: 50px;
 }

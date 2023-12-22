@@ -1,6 +1,6 @@
 import { AsyncPipe, NgIf } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
-
+import { TodoFormComponent } from './todo-form/todo-form.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { Todo } from './model/todo';
@@ -26,6 +26,7 @@ import { TodoSearchComponent } from './todo-search/todo-search.component';
     TodoListComponent,
     FooterComponent,
     TodoDetailComponent,
+    TodoFormComponent,
     TodoSearchComponent,
   ],
   templateUrl: './app.component.html',
@@ -41,10 +42,10 @@ export class AppComponent implements OnInit {
   selectedId?: number;
 
   ngOnInit(): void {
-    this.tasks$ = merge(
-      this.refresh$.pipe(startWith(undefined)),
-      this.search$
-    ).pipe(switchMap(() => this.taskService.getAll(this.search$.value)));
+    this.tasks$ = this.refresh$.pipe(
+      startWith(undefined),
+      switchMap(() => this.taskService.getAll(null))
+    );
   }
 
   onAdd(): void {
