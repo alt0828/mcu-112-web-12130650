@@ -12,7 +12,7 @@ export class Todo {
 
   hasFinished!: boolean;
   finishDate?: Date;
-
+  tags!: string[];
   setFinished(finishDate: Date): void {
     this.hasFinished = true;
     this.finishDate = finishDate;
