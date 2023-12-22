@@ -7,7 +7,14 @@ import { Todo } from './model/todo';
 import { TaskService } from './services/task.service';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoDetailComponent } from './todo-detail/todo-detail.component';
-import { Observable, Subject, startWith, switchMap } from 'rxjs';
+import {
+  BehaviorSubject,
+  merge,
+  Observable,
+  startWith,
+  Subject,
+  switchMap,
+} from 'rxjs';
 import { TodoSearchComponent } from './todo-search/todo-search.component';
 @Component({
   selector: 'app-root',
@@ -28,15 +35,16 @@ export class AppComponent implements OnInit {
   taskService = inject(TaskService);
 
   tasks$!: Observable<Todo[]>;
+  readonly search$ = new BehaviorSubject<string | null>(null);
   readonly refresh$ = new Subject<void>();
 
   selectedId?: number;
 
   ngOnInit(): void {
-    this.tasks$ = this.refresh$.pipe(
-      startWith(undefined),
-      switchMap(() => this.taskService.getAll())
-    );
+    this.tasks$ = merge(
+      this.refresh$.pipe(startWith(undefined)),
+      this.search$
+    ).pipe(switchMap(() => this.taskService.getAll(this.search$.value)));
   }
 
   onAdd(): void {
@@ -50,5 +58,8 @@ export class AppComponent implements OnInit {
     this.taskService
       .updateState(task, state)
       .subscribe(() => this.refresh$.next());
+  }
+  onSearch(content: string | null): void {
+    this.search$.next(content);
   }
 }
