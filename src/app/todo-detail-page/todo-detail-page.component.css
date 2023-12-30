@@ -1,0 +1,9 @@
+div.container {
+  margin: 0px auto;
+  width: 550px;
+}
+
+div.button {
+  margin-top: 10px;
+  text-align: center;
+}

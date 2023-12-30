@@ -5,7 +5,7 @@
     <app-todo-list
       [tasks]="tasks$ | async"
       (remove)="onRemove($event)"
-      (view)="selectedId = $event"
+      (view)="onView($event)"
       (stateChange)="onStateChange($event)"
     ></app-todo-list>
   </section>
@@ -15,10 +15,3 @@
 <div class="container">
   <app-todo-form (save)="onSave($event)"></app-todo-form>
 </div>
-
-<ng-container *ngIf="selectedId">
-  <hr />
-  <div class="container">
-    <app-todo-detail [id]="selectedId"></app-todo-detail>
-  </div>
-</ng-container>

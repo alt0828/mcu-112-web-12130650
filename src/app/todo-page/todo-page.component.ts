@@ -17,7 +17,7 @@ import { TodoDetailComponent } from '../todo-detail/todo-detail.component';
 import { TodoFormComponent } from '../todo-form/todo-form.component';
 import { TodoListComponent } from '../todo-list/todo-list.component';
 import { TodoSearchComponent } from '../todo-search/todo-search.component';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-todo-page',
   standalone: true,
@@ -26,7 +26,6 @@ import { TodoSearchComponent } from '../todo-search/todo-search.component';
     AsyncPipe,
     HeaderComponent,
     TodoListComponent,
-    TodoDetailComponent,
     TodoSearchComponent,
     TodoFormComponent,
     FooterComponent,
@@ -43,7 +42,7 @@ export class TodoPageComponent implements OnInit {
 
   readonly refresh$ = new Subject<void>();
 
-  selectedId?: number;
+  readonly router = inject(Router);
 
   ngOnInit(): void {
     this.tasks$ = merge(
@@ -68,5 +67,8 @@ export class TodoPageComponent implements OnInit {
 
   onSearch(content: string | null): void {
     this.search$.next(content);
+  }
+  onView(id: number): void {
+    this.router.navigate(['todo', id]);
   }
 }

@@ -8,7 +8,6 @@ div.container {
   border-bottom: none;
 }
 
-.todo-form,
-.todo-detail {
+.todo-form {
   margin-top: 50px;
 }
