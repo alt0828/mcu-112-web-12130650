@@ -1,3 +1,16 @@
 {
-  "tasks": []
+  "tasks": [
+    {
+      "content": "Task A",
+      "tags": [],
+      "hasFinished": false,
+      "id": 1
+    },
+    {
+      "content": "Task B",
+      "tags": [],
+      "hasFinished": false,
+      "id": 2
+    }
+  ]
 }

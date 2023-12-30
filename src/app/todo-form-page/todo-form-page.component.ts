@@ -14,6 +14,7 @@ import { TodoFormComponent } from '../todo-form/todo-form.component';
 })
 export class TodoFormPageComponent implements OnInit {
   taskService = inject(TaskService);
+  title!: string;
   id?: number;
   formData?: Todo;
   readonly router = inject(Router);
@@ -23,9 +24,13 @@ export class TodoFormPageComponent implements OnInit {
     this.route.paramMap
       .pipe(
         filter((paramMap) => paramMap.has('id')),
-        map((paramMap) => +paramMap.get('id')!),
-        tap((id) => (this.id = id)),
-        switchMap((id) => this.taskService.getById(id))
+        map((paramMap) => +paramMap.get('id')!)
+      )
+      .subscribe((id) => (this.id = id));
+    this.route.data
+      .pipe(
+        tap(({ title }) => (this.title = title)),
+        map(({ formData }) => formData)
       )
       .subscribe((formData) => (this.formData = formData));
   }
