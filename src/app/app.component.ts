@@ -6,6 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { Todo } from './model/todo';
 import { TaskService } from './services/task.service';
 import { TodoListComponent } from './todo-list/todo-list.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { TodoDetailComponent } from './todo-detail/todo-detail.component';
 import {
   BehaviorSubject,
@@ -21,6 +22,7 @@ import { TodoSearchComponent } from './todo-search/todo-search.component';
   standalone: true,
   imports: [
     NgIf,
+    NavBarComponent,
     AsyncPipe,
     HeaderComponent,
     TodoListComponent,
