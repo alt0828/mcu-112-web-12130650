@@ -1,11 +1,10 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { filter, map, Observable, switchMap, tap } from 'rxjs';
 import { Todo } from '../model/todo';
 import { TaskService } from '../services/task.service';
 import { TodoFormComponent } from '../todo-form/todo-form.component';
-import { map, filter, switchMap, tap, Observable } from 'rxjs';
-import { JsonPipe } from '@angular/common';
+
 @Component({
   selector: 'app-todo-form-page',
   standalone: true,
