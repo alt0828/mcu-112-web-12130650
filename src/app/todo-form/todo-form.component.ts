@@ -21,6 +21,8 @@ export class TodoFormComponent {
   class = 'todo-form';
   @Output()
   readonly save = new EventEmitter<Todo>();
+  @Output()
+  readonly cancel = new EventEmitter<void>();
   readonly form = new FormGroup<ITodoForm>({
     content: new FormControl<string | null>(null, {
       validators: [Validators.required],
